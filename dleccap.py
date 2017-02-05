@@ -331,12 +331,15 @@ def main():
 
     # which recordings to download?
     print "Which recording would you like to download?"
-    input = raw_input("Enter a number between %i and %i, or press Enter to download all: " % (1, len(recordings)))
+    lectures = raw_input("Enter a number between 1 and %(num_lectures)d, a comma delimited list of numbers between 1 and %(num_lectures)d, or press Enter to download all: " % {'num_lectures': len(recordings)})
     try:
-        input_as_int = int(input)
-        if input_as_int < 1 or input_as_int > len(recordings):
-            raise Exception("Invalid input")
-        recordings = recordings[input_as_int - 1 : input_as_int]
+        if ',' in lectures:
+            recordings = [recordings[int(i)] for i in lectures.split(',')]
+        else:
+            input_as_int = int(input)
+            if input_as_int < 1 or input_as_int > len(recordings):
+                raise Exception("Invalid input")
+            recordings = recordings[input_as_int - 1 : input_as_int]
     except:
         if input != "":
             # user did not press enter
