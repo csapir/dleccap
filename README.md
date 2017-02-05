@@ -13,9 +13,7 @@ Download CAEN and LSA-ISS Lecture recordings
 * Install dependencies
 
   ```
-  pip install requests
-  pip install wget
-  pip install beautifulsoup4
+  pip install -r requirements.txt
   ```
 
 ## Usage
