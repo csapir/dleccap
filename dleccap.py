@@ -13,23 +13,12 @@ Usage: ./dleccap.py
 
 # command-line arguments
 import argparse
-# HTTP stuff
-# import cookielib
-# import urllib
-# import urllib2
 import requests
-# import json
 import json
-# file system access
 import os
-# I/O
 import sys
-# file downloads
 import wget
-# password input
 from getpass import getpass
-# parsing HTML
-# pip install beautifulsoup4
 from bs4 import BeautifulSoup
 
 # globals
@@ -146,7 +135,7 @@ def get_cookie_and_site_id_from_canvas(url):
     try:
         # get Canvas leccap page
         p = session.get(url)
-        # print p.text
+
         # find form on the page that will get the cookie
         soup = BeautifulSoup(p.text, "html.parser")
         form = soup.find("form")
