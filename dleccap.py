@@ -336,12 +336,12 @@ def main():
         if ',' in lectures:
             recordings = [recordings[int(i)] for i in lectures.split(',')]
         else:
-            input_as_int = int(input)
+            input_as_int = int(lectures)
             if input_as_int < 1 or input_as_int > len(recordings):
                 raise Exception("Invalid input")
             recordings = recordings[input_as_int - 1 : input_as_int]
     except:
-        if input != "":
+        if lectures != "":
             # user did not press enter
             print_error(":( Invalid input")
             return
